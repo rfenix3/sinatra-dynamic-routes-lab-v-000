@@ -1,3 +1,4 @@
+require 'pry'
 require_relative 'config/environment'
 
 class App < Sinatra::Base
@@ -16,6 +17,7 @@ class App < Sinatra::Base
 
   # accepts a number and a phrase and returns that phrase in a string the number of times given
   get '/say/:number/:phrase' do
+    binding.pry
     @number = params[:number].to_i
     @phrase = params[:phrase]
     @number.times do |i|
