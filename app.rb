@@ -19,8 +19,8 @@ class App < Sinatra::Base
     @number = params[:number]_to_i
     @phrase = params[:phrase]
     @number.times do |i|
-      print "#{@phrase}"
-end
+      "#{@phrase}"
+    end
   end
 
   # accepts five words and returns a string containing all five words (i.e. word1 word2 word3 word4 word5)
