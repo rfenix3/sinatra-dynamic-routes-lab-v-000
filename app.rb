@@ -24,7 +24,7 @@ class App < Sinatra::Base
     @number.times do |i|
       answer += "#{@phrase}\n"
     end
-    binding.pry
+    #binding.pry
     answer
   end
 
