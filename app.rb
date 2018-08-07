@@ -10,6 +10,7 @@ class App < Sinatra::Base
 
   # accepts a number and returns the square of that number
   get '/square/:number' do
+    @answer = params[:number].to_i**2
   end
 
   # accepts a number and a phrase and returns that phrase in a string the number of times given
