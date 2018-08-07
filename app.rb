@@ -30,34 +30,27 @@ class App < Sinatra::Base
 
   # accepts five words and returns a string containing all five words (i.e. word1 word2 word3 word4 word5)
   get '/say/:word1/:word2/:word3/:word4/:word5' do
+    "#{params[:word1]} #{params[:word2]} #{params[:word3]} #{params[:word4]} #{params[:word5]}."
   end
 
   #  accepts an operation (add, subtract, multiply or divide) and performs the operation on the two numbers provided.
   # For example, going to /add/1/2 should render 3
   get '/:operation/:number1/:number2' do
-
+        operation = params[:operation]
+        number1 = params[:number1].to_i
+        number2 = params[:number2].to_i
+        if operation == "add"
+          answer = number1 + number2
+        elsif operation == "subtract"
+          answer = number1 - number2
+        elsif operation == "multiply"
+          answer = number1 * number2
+        elsif operation == "divide"
+          answer = number1 / number2
+        else
+          answer = "Unable to perform this operation"
+        end
+        answer.to_s
   end
 
 end
-
-# get '/say/:word1/:word2/:word3/:word4/:word5' do
-#     "#{params[:word1]} #{params[:word2]} #{params[:word3]} #{params[:word4]} #{params[:word5]}."
-#   end
-#
-#   get '/:operation/:number1/:number2' do
-#     operation = params[:operation]
-#     number1 = params[:number1].to_i
-#     number2 = params[:number2].to_i
-#     if operation == "add"
-#       answer = number1 + number2
-#     elsif operation == "subtract"
-#       answer = number1 - number2
-#     elsif operation == "multiply"
-#       answer = number1 * number2
-#     elsif operation == "divide"
-#       answer = number1 / number2
-#     else
-#       answer = "Unable to perform this operation"
-#     end
-#     answer.to_s
-#   end
